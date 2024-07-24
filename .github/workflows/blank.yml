@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: get epic branches
         id : get-epic
-        run: echo "git branch -r --list origin/epic/*"
+        run: echo $(git branch -r --list origin/epic/*)
 #        run: echo "EpicBranches=$(git branch -r --list origin/epic/*)" >> $GITHUB_ENV
 
       # Runs a set of commands using the runners shell
