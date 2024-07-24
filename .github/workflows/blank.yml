@@ -30,11 +30,12 @@ jobs:
         id : get-epic
         run: |
           echo "EpicBranches=$(git branch -r --list origin/epic/*)" >> $GITHUB_ENV
-          echo $EpicBranches
+          echo EpicBranches
 
       # Runs a set of commands using the runners shell
       - name: merge epic branch
         run: |
+          echo EpicBranches
           for branch in $EpicBranches
           do
             git checkout $branch
