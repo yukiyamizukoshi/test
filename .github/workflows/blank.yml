@@ -28,7 +28,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: get epic branches
         id : get-epic
-        run: echo "epic-branches=$(echo `git branch -r --list origin/epic/*`)"
+        run: echo "epic-branches=$(git branch -r --list origin/epic/*)"
 
       # Runs a set of commands using the runners shell
       - name: merge epic branch
