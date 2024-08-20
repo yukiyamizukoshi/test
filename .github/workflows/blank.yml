@@ -27,6 +27,10 @@ jobs:
           git fetch --all
           echo $(git branch -r --list origin/epic/*)
           echo "epic_list==$(git branch -r --list origin/epic/*)" >> $GITHUB_ENV
+      - name: output-branch-name
+        run: |
+          echo ${{ env.epic_list }}
+          echo "${{ steps.get-epic.outputs.epic_list }}"
   # This workflow contains a single job called "build"
   auto-merge:
     # The type of runner that the job will run on
