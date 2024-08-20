@@ -17,7 +17,7 @@ jobs:
   get-epic-branches:
     runs-on: ubuntu-latest
     outputs:
-      branch_list: ${{ steps.branch_list.outputs.release_list }}
+      branch_list: ${{ steps.get-epic.outputs.epic_list }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -26,7 +26,7 @@ jobs:
         run: |
           git fetch --all
           echo $(git branch -r --list origin/epic/*)
-          echo "release_list==$(git branch -r --list origin/epic/*)" >> $GITHUB_ENV
+          echo "epic_list==$(git branch -r --list origin/epic/*)" >> $GITHUB_ENV
   # This workflow contains a single job called "build"
   auto-merge:
     # The type of runner that the job will run on
