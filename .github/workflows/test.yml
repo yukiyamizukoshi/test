@@ -1,0 +1,11 @@
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: output pr title
+        run: echo ${{ github.event.pull_request.title }}
